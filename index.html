@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        li{
+            width: 500px;
+            height: 25px;
+            display: flex;
+            justify-content: space-evenly;
+            border: 2px solid rgb(32, 29, 29);
+            border-radius: 5px;
+            padding: 4px;
+            margin: 2px;
+            background-color:yellow
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(156, 152, 152);
+        }
+        #demo{
+            border: 2px solid black;
+            border-radius: 15px;
+            background-color: rgb(180, 90, 221);
+            height: 100vh;
+            width: 50vw;
+            box-shadow: 4px,5px,6px;
+        }
+        .demo2{
+            text-align: center;
+            padding: 10px;
+            font-size: 1.7em;
+            font-weight: 900;
+            border-bottom: 0.5px solid white;
+            margin: 20px;
+
+        }
+        .task{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        input{
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button:hover{
+            box-shadow: 2px 2px 2px;
+            border: 1px solid black;
+        }
+        .addbtn{
+            background-color: yellowgreen;
+            color: black;
+            padding: 4px;
+            border-radius: 5px;
+        }
+        
+    </style> 
+</head> 
+<body>
+    <div id="demo">
+        <div class="demo2">To do List</div>
+        <div class="task">
+    <input type="text"id="input"   placeholder="enter your to do work">
+<button onclick="addbtn()" class="addbtn">add List</button>
+</div>
+<ul id="tasklist">
+    
+</ul>
+
+</div>
+
+
+  <script>
+    function addbtn(){
+        // let newtask=""
+        let newtask=document.getElementById("input").value
+        if(newtask==""){
+            alert('enter task')
+            
+        }else{
+            // console.log("start again")
+            newtask=document.createElement("li")
+        newtask.className="qq"
+        console.log(newtask)
+        
+
+        let tasklist=document.getElementById("tasklist")
+        console.log(tasklist)
+
+        tasklist.append(newtask)
+        
+        newtask.textContent=document.getElementById("input").value
+        document.getElementById("input").value=''
+        donetask(newtask)
+        undonetask(newtask)
+        
+        }
+        
+
+    }
+    function donetask(newtask){
+        let data = document.createElement("button")
+        // data.className="green"
+        console.log(data)
+        // data.textContent="taskdone"
+          data.textContent="REMOVE"
+
+        newtask.append(data)
+        data.onclick=function(){
+            newtask.remove()
+            // let bgcolor=document.querySelector("li").style.backgroundColor="green";
+            // document.body.style.color="green"
+        }
+    }
+    // function undonetask(newtask){
+    //     let data3=document.createElement("button")
+    //     // data3.className="red"
+    //     console.log(data3)
+    //     data3.textContent="undonetask"
+
+
+        
+    //     newtask.append(data3)
+    //     data3.onclick=function(){
+    //         // newtask.remove()
+    //         let bgcolor=document.querySelector("li").style.backgroundColor="red";
+    //         // document.body.style.color="red"
+    //     }
+
+    // }
+  </script>
+
+    
+
+    
+</body>
+</html>
